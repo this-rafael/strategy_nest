@@ -9,6 +9,6 @@ export type MatcherKeys = string | number | symbol;
  * K enum like type with the acceptable context values
  * T the type of the strategies
  */
-export type Matchers<K extends MatcherKeys, T extends object> = {
-  [key in K]: T;
+export type Matchers<K extends MatcherKeys> = {
+  [key in K]: object;
 };

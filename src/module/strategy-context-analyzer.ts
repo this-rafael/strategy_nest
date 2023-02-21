@@ -11,18 +11,17 @@ import { AcceptableContext } from './types';
  * @class StrategyContextAnalyzer
  * @implements {AnalyzableContext}
  * @template K - the context matcher keys
- * @template S - the returned type strategy
  */
 @Injectable()
-export class StrategyContextAnalyzer<K extends MatcherKeys, S extends object>
+export class StrategyContextAnalyzer<K extends MatcherKeys>
   implements AnalyzableContext
 {
   /**
    * Creates an instance of StrategyContextAnalyzer from a Matchers object
-   * @param {Matchers<K, S>} matchers
+   * @param {Matchers<K>} matchers
    * @memberof StrategyContextAnalyzer
    */
-  constructor(private readonly matchers: Matchers<K, S>) {}
+  constructor(private readonly matchers: Matchers<K>) {}
 
   /**
    * Analyze a context and return the strategy
