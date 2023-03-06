@@ -1,4 +1,4 @@
-import { AcceptableContext } from './types';
+import { AcceptableContext } from "./types";
 
 /**
  * AnalyzableContext interface is used to analyze a context and return a strategy
@@ -6,7 +6,7 @@ import { AcceptableContext } from './types';
  * @export
  * @interface AnalyzableContext
  */
-export interface AnalyzableContext {
+export interface AnalyzableContext<T extends object = any> {
   /**
    * Analyze a context and return a strategie
    *
@@ -15,5 +15,5 @@ export interface AnalyzableContext {
    * @return {*}  {T} - The strategie that matches the context
    * @memberof AnalyzableContext
    */
-  analyze<T extends object>(context: AcceptableContext): T;
+  analyze(context: AcceptableContext): T;
 }
