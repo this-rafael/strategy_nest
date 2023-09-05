@@ -1,14 +1,14 @@
 import { InjectionToken, Provider, Type } from '@nestjs/common';
 
 export class Injects {
-  static of<T extends object, K extends T>(
-    superClass: T,
-    subclass: K,
-  ): Provider<T> {
+  static of<K extends object = any>(
+    superClass: InjectionToken,
+    subclass: Type<K>,
+  ): Provider<K> {
     return {
       provide: superClass,
       useClass: subclass,
-    } as unknown as Provider<T>;
+    } as unknown as Provider<K>;
   }
 
   static ofMany<K extends object>(
