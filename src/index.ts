@@ -7,6 +7,7 @@ import {
 import { GenerateModule } from "./module/generate-custom-module";
 import { StrategyOf } from "./module/annotation";
 import { StrategyContextAnalyzer } from "./module/strategy-context-analyzer";
+import { Injects } from "./module/alias-functions";
 
 export {
   AnalyzableContext,
@@ -15,4 +16,5 @@ export {
   StrategyContextAnalyzer,
   GenerateModule,
   StrategyOf,
+  Injects
 };
