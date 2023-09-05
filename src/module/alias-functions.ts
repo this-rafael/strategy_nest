@@ -1,7 +1,22 @@
 import { InjectionToken, Provider, Type } from '@nestjs/common';
 
+class AsInject<K extends object = any> {
+  constructor(
+    private subclass: Type<K>
+  ) {}
+
+  as(superClassToken: InjectionToken): Provider<K> {
+    return {
+      provide: superClassToken,
+      useClass: this.subclass
+    }
+  }
+
+  
+}
+
 export class Injects {
-  static of<K extends object = any>(
+  static provide<K extends object = any>(
     superClass: InjectionToken,
     subclass: Type<K>,
   ): Provider<K> {
@@ -11,7 +26,7 @@ export class Injects {
     } as unknown as Provider<K>;
   }
 
-  static ofMany<K extends object>(
+  static provideMany<K extends object>(
     superClasses: InjectionToken[],
     subClass: Type<K>,
   ): Provider[] {
@@ -30,4 +45,9 @@ export class Injects {
     response.push(...providers);
     return response;
   }
+
+  static of<K extends object = any>(subclass: Type<K>): AsInject<K> {
+    return new AsInject<K>(subclass);
+  }
+
 }

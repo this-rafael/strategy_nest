@@ -17,7 +17,7 @@ export interface CustomModuleMetadata extends ModuleMetadata {
    */
   protocols?: Provider<any>[];
 
-  strategies: ProvidableStrategy[];
+  strategies?: ProvidableStrategy[];
 }
 
 export function GenerateModule(data: CustomModuleMetadata): ModuleMetadata {
